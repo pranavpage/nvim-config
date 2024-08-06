@@ -8,8 +8,10 @@ require('mason-lspconfig').setup({
     'pylsp',  -- For Python
     'clangd',    -- For C++
     'lua_ls', -- For Lua
+    'html', -- For HTML
   }
 })
+require('lspconfig').html.setup{}
 local cmp = require('cmp')
 local cmp_select = {behaviour = cmp.SelectBehavior.Select}
 local cmp_mappings = lsp.defaults.cmp_mappings{
@@ -18,5 +20,5 @@ local cmp_mappings = lsp.defaults.cmp_mappings{
 ['<C-y>'] = cmp.mapping.confirm({select = true}),
 ["<C-Space>"] = cmp.mapping.complete(),
 }
-require'lspconfig'.pylsp.setup{}
+require('lspconfig').pylsp.setup{}
 lsp.setup()
